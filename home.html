@@ -2,19 +2,46 @@
 <html>
     <head>
         <title>File Server</title>
+        <link rel="icon" type="image/x-icon" href="/file-server-app/imgs/favicon.ico">
         <link rel="stylesheet" href="/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        
     </head>
     <body>
-        <h1 class="title">Welcome to File Server!</h1>
-        <!--upload-->
-        <h1>Upload File</h1>
-        <form action="/upload" method="post" enctype="multipart/form-data">
-            <input type="file" name="file" required>
-            <br>
-            <button type="submit" class="upload_btn">Upload</button>
-        </form>
+        <div class="container">
+            <i class="material-icons" style="font-size: 70px;">folder_open</i>
+            <h1 class="title"> Welcome to File Server!</h1>
+            
+            <!-- Upload Section -->
+            <h1>Upload File</h1>
+            <div class="centered button-container">
+                <form action="/upload" method="post" enctype="multipart/form-data"> <!-- Make sure to set enctype to multipart/form-data -->
+                    <label for="file" class="choose-file-btn">Choose File</label>
+                    <input type="file" name="file" id="file" required>
+                    <br>
+                    <span id="selectedFileName" class="fileName"></span> <!-- Display selected file name here -->
+                    <br>
+                    <button type="submit" class="upload-btn">Upload</button>
+                </form>
+            </div>
 
-        <h1>Uploaded Files</h1>
-        <a href="/list">View Uploaded Files</a>
+            <br><br>
+            
+            <!-- Uploaded Files Section -->
+            <h1>Uploaded Files</h1>
+            <a href="/list" class="uploaded-btn">View Uploaded Files</a>
+        </div>
+
+        <script>
+            document.getElementById('file').addEventListener('change', function () {
+                const selectedFile = this.files[0];
+                const fileNameElement = document.getElementById('selectedFileName');
+                if (selectedFile) {
+                    fileNameElement.textContent = 'Selected File: ' + selectedFile.name;
+                } else {
+                    fileNameElement.textContent = ''; // Clear the indicator
+                }
+            });
+        </script>
     </body>
 </html>

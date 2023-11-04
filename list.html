@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Uploaded Files</title>
+        <title>File Server</title>
         <link rel="stylesheet" href="/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     </head>
     <body>
+    <div class="container">
+    <i class="material-icons" style="font-size: 70px;">storage</i>
     <h1>Uploaded Files</h1>
-    <div id="fileList"> <!-- fileList --> </div>
+    <p>Click a file to download</p>
+    <div id="fileList" class="fileListContainer"> <!-- fileList --> </div>
         <br>
-    <a href="/">Back to Home</a>
+    <a href="/" class="backToHome">Back to Home</a>
     
     <script>
         function deleteFile(fileName) {
@@ -26,6 +30,6 @@
             }
         }
     </script>
-
+    </div>
     </body>
 </html>

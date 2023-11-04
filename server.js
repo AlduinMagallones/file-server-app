@@ -5,25 +5,26 @@ const path = require('path');
 const multer = require('multer');
 const fs = require('fs');
 
+app.use(express.static('public'));
+
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(express.static(path.join(__dirname, 'public')));
+// Serve the uploaded files
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'uploads/');
     },
     filename: (req, file, cb) => {
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-        const fileExtension = path.extname(file.originalname);
-        cb(null, file.fieldname + '-' + uniqueSuffix + fileExtension);
+        cb(null, file.originalname); // Keep the original file name
     }
 });
 
 const upload = multer({ storage: storage });
 
 app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, '/home.html'));
+    res.sendFile(path.join(__dirname, 'home.html'));
 });
 
 app.get('/list', function (req, res) {
@@ -38,8 +39,8 @@ app.get('/list', function (req, res) {
             files.forEach((file) => {
                 fileList += `
                     <div>
+                        <button onclick="deleteFile('${file}')">Delete File</button>
                         <a href="/download?file=${file}">${file}</a>
-                        <button onclick="deleteFile('${file}')">Delete</button>
                     </div>
                 `;
             });
@@ -75,7 +76,7 @@ app.get('/delete', function (req, res) {
 });
 
 app.post('/upload', upload.single('file'), function (req, res) {
-    res.redirect('/');
+    res.redirect('/list'); // Redirect to the list page after the file is uploaded
 });
 
 app.get('/download', function(req, res) {
