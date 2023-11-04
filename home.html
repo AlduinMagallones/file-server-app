@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>File Server</title>
+        <link rel="stylesheet" href="/styles.css">
+    </head>
+    <body>
+        <h1 class="title">Welcome to File Server!</h1>
+        <!--upload-->
+        <h1>Upload File</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <br>
+            <button type="submit" class="upload_btn">Upload</button>
+        </form>
+
+        <h1>Uploaded Files</h1>
+        <a href="/list">View Uploaded Files</a>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Uploaded Files</title>
+        <link rel="stylesheet" href="/styles.css">
+    </head>
+    <body>
+    <h1>Uploaded Files</h1>
+    <div id="fileList"> <!-- fileList --> </div>
+        <br>
+    <a href="/">Back to Home</a>
+    
+    <script>
+        function deleteFile(fileName) {
+            if (confirm(`Are you sure you want to delete ${fileName}?`)) {
+                fetch(`/delete?file=${fileName}`, {
+                    method: 'GET',
+                })
+                .then(response => {
+                    if (response.status === 200) {
+                        location.reload(); // Reload the list after successful deletion
+                    } else {
+                        alert('Failed to delete the file. Please try again.');
+                    }
+                });
+            }
+        }
+    </script>
+
+    </body>
+</html>
