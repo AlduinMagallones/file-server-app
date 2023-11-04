@@ -2,7 +2,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
     height: 100vh;
     user-select: none;
     background-color: rgb(161, 161, 161);
@@ -11,32 +10,48 @@ body {
 
 .title {
     font-family: monospace;
-    font-size: 30px;
+    font-size: 55px;
     color: rgb(214, 214, 214);
     margin-top: 5px;
 }
 
 h1 {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
+    font-size: 45px;
+    margin-top: 30px;
 }
 
 .centered {
     text-align: center;
     margin-left:0%;
 }
-.container {
+.container1 {
     border: 5px solid;
     border-radius: 25%;
-    padding: 110px;
-    height: 300px;
+    padding: 140px;
+    height: 550px;
 
     background-color: gray;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
     justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
+}
+
+.container2 {
+    border: 5px solid;
+    border-radius: 25%;
+    padding: 140px;
+    height: 550px;
+    width: 600px;
+
+    background-color: gray;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .button-container {
@@ -45,17 +60,27 @@ h1 {
 
 p {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    margin-top: auto;
+    font-size: 30px;
+    margin-top: -20px;
+}
+
+.selectfile_container {
+    background-color: #949494;
+    border: 2px solid #6d6d6d;
+    padding: 10px;
+    width: auto;
+    height: auto;
+    justify-content: center;
+    align-items: center;
 }
 
 .fileName {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    font-size: 25px;
 }
 
 .scrollable-list {
-    max-height: 400px; /* Set the maximum height according to your design */
+    max-height: 400px;
     overflow-y: auto;
     border: 1px solid #ccc;
     padding: 10px;
@@ -63,11 +88,12 @@ p {
 
 .fileListContainer {
     background-color: #949494;
-    max-height: 800px; /* Set the maximum height according to your design */
+    max-height: 700px; 
     overflow-y: auto;
     border: 2px solid #6d6d6d;
     padding: 15px;
-    
+    font-size: 25px;
+    width: 700px;
 }
 
 /* for buttons */
@@ -81,7 +107,7 @@ p {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 25px;
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 4px;
@@ -100,10 +126,11 @@ p {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 25px;
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 4px;
+    margin-top: -10px;
 }
 
 .uploaded-btn:hover {
@@ -122,18 +149,17 @@ input[type="file"] {
     padding: 10px 20px;
     text-align: center;
     display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
+    font-size: 25px;
+    margin: 7px 2px;
     cursor: pointer;
     border-radius: 4px;
 
-    margin-top: auto;
+    margin-top: -30px;
 }
 
 .choose-file-btn:hover {
     background-color: rgb(46, 46, 46);
 }
-
 
 .backToHome {
     font-family: Arial, Helvetica, sans-serif;
@@ -144,7 +170,7 @@ input[type="file"] {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 25px;
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 4px;
@@ -152,4 +178,22 @@ input[type="file"] {
 
 .backToHome:hover {
     background-color: #6b6b6b;
+}
+
+.delete-button {
+    background-color: rgb(22, 22, 22); 
+    color: #ffffff;
+    border: none;
+    padding: 7px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.delete-button:hover {
+    background-color: rgb(46, 46, 46);
 }

@@ -2,14 +2,13 @@
 <html>
     <head>
         <title>File Server</title>
-        <link rel="icon" type="image/x-icon" href="/file-server-app/imgs/favicon.ico">
         <link rel="stylesheet" href="/styles.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         
     </head>
     <body>
-        <div class="container">
-            <i class="material-icons" style="font-size: 70px;">folder_open</i>
+        <div class="container1">
+            <i class="material-icons" style="font-size: 100px;">folder_open</i>
             <h1 class="title"> Welcome to File Server!</h1>
             
             <!-- Upload Section -->
@@ -19,7 +18,9 @@
                     <label for="file" class="choose-file-btn">Choose File</label>
                     <input type="file" name="file" id="file" required>
                     <br>
-                    <span id="selectedFileName" class="fileName"></span> <!-- Display selected file name here -->
+                    <div class="selectfile_container">
+                        <span id="selectedFileName" class="fileName">No File Selected</span> 
+                    </div>
                     <br>
                     <button type="submit" class="upload-btn">Upload</button>
                 </form>
@@ -36,10 +37,12 @@
             document.getElementById('file').addEventListener('change', function () {
                 const selectedFile = this.files[0];
                 const fileNameElement = document.getElementById('selectedFileName');
+                
                 if (selectedFile) {
                     fileNameElement.textContent = 'Selected File: ' + selectedFile.name;
                 } else {
-                    fileNameElement.textContent = ''; // Clear the indicator
+                    fileNameElement.textContent = 'No File Selected'; // Clear the indicator
+    
                 }
             });
         </script>

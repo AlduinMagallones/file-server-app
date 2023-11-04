@@ -39,7 +39,7 @@ app.get('/list', function (req, res) {
             files.forEach((file) => {
                 fileList += `
                     <div>
-                        <button onclick="deleteFile('${file}')">Delete File</button>
+                        <button class="delete-button" onclick="deleteFile('${file}')">Delete File</button>
                         <a href="/download?file=${file}">${file}</a>
                     </div>
                 `;
@@ -76,7 +76,7 @@ app.get('/delete', function (req, res) {
 });
 
 app.post('/upload', upload.single('file'), function (req, res) {
-    res.redirect('/list'); // Redirect to the list page after the file is uploaded
+    res.sendFile(path.join(__dirname, 'home.html')); // Serve the home page again
 });
 
 app.get('/download', function(req, res) {
