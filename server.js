@@ -24,7 +24,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, 'src/home.html'));
+    res.sendFile(path.join(__dirname, 'pages/home.html'));
 });
 
 app.get('/list', function (req, res) {
@@ -46,7 +46,7 @@ app.get('/list', function (req, res) {
             });
 
             // Read the contents of the list.html file
-            fs.readFile(path.join(__dirname, 'src/list.html'), 'utf8', (err, data) => {
+            fs.readFile(path.join(__dirname, 'pages/list.html'), 'utf8', (err, data) => {
                 if (err) {
                     console.error('Error reading list.html:', err);
                     res.status(500).send('Error reading HTML file');
@@ -76,7 +76,7 @@ app.get('/delete', function (req, res) {
 });
 
 app.post('/upload', upload.single('file'), function (req, res) {
-    res.sendFile(path.join(__dirname, 'src/home.html')); // Serve the home page again
+    res.sendFile(path.join(__dirname, 'pages/home.html')); // Serve the home page again
 });
 
 app.get('/download', function(req, res) {
